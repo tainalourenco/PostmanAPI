@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "cce50314-c85b-4e45-a305-a88fa50dd939",
+		"name": "Departamento",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19860280"
+	},
+	"item": [
+		{
+			"name": "Api_login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mail\": \"sysadmin@qacoders.com\",\r\n  \"password\": \"1234@Test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://the-originals.qacoders-academy.com.br/api/login",
+					"protocol": "https",
+					"host": [
+						"the-originals",
+						"qacoders-academy",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incluir departamento",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function palavraAleatoria(comprimento) {\r",
+							"    const letras = 'abcdefghijklmnopqrstuvwxyz'; // Define as letras disponíveis\r",
+							"    let palavra = '';\r",
+							"    for (let i = 0; i < comprimento; i++) {\r",
+							"        const indice = Math.floor(Math.random() * letras.length); // Gera um índice aleatório\r",
+							"        palavra += letras.charAt(indice); // Adiciona a letra correspondente ao índice à palavra\r",
+							"    }\r",
+							"    return palavra;\r",
+							"}\r",
+							"\r",
+							"function Department() {\r",
+							"    return palavraAleatoria(10); // Gera uma palavra aleatória com \r",
+							"\r",
+							"    }\r",
+							"\r",
+							"pm.environment.set(\"Departamento\", Department());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"departmentName\": \"{{Departamento}}\",\r\n  \"costCenterId\": \"65855af6a2d3ae70485da0b7\"\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://the-originals.qacoders-academy.com.br/api/department/",
+					"protocol": "https",
+					"host": [
+						"the-originals",
+						"qacoders-academy",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"department",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incluir departamento com caractere &",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function palavraAleatoria(comprimento) {\r",
+							"    const letras = 'abcdefghijklmnopqrstuvwxyz&'; // Define as letras disponíveis\r",
+							"    let palavra = '';\r",
+							"    for (let i = 0; i < comprimento; i++) {\r",
+							"        const indice = Math.floor(Math.random() * letras.length); // Gera um índice aleatório\r",
+							"        palavra += letras.charAt(indice); // Adiciona a letra correspondente ao índice à palavra\r",
+							"    }\r",
+							"    return palavra;\r",
+							"}\r",
+							"\r",
+							"function Department() {\r",
+							"    return palavraAleatoria(27); // Gera uma palavra aleatória com \r",
+							"\r",
+							"    }\r",
+							"\r",
+							"pm.environment.set(\"Departamento&\", Department());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"departmentName\": \"{{Departamento&}}\",\r\n  \"costCenterId\": \"65855af6a2d3ae70485da0b7\"\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://the-originals.qacoders-academy.com.br/api/department/",
+					"protocol": "https",
+					"host": [
+						"the-originals",
+						"qacoders-academy",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"department",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incluir departamento Com numeros",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"_mensagemDepNumero\", pm.globals.get(\"mensagemDepNumero\"))"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"check msg:O campo 'departamento' só pode conter letras e o caractere especial '&'.\", function(){\r",
+							"    pm.expect(pm.globals.get(\"mensagemDepNumero\")).to.eql(JSON.parse(responseBody).error[0]);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"departmentName\": \"123Dep\",\r\n  \"costCenterId\": \"65855af6a2d3ae70485da0b7\"\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://the-originals.qacoders-academy.com.br/api/department/",
+					"protocol": "https",
+					"host": [
+						"the-originals",
+						"qacoders-academy",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"department",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Departamento_Letras Maiusculas",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function palavraAleatoria(comprimento) {\r",
+							"    const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // Define as letras disponíveis\r",
+							"    let palavra = '';\r",
+							"    for (let i = 0; i < comprimento; i++) {\r",
+							"        const indice = Math.floor(Math.random() * letras.length); // Gera um índice aleatório\r",
+							"        palavra += letras.charAt(indice); // Adiciona a letra correspondente ao índice à palavra\r",
+							"    }\r",
+							"    return palavra;\r",
+							"}\r",
+							"\r",
+							"function Department() {\r",
+							"    return palavraAleatoria(10); // Gera uma palavra aleatória com \r",
+							"\r",
+							"    }\r",
+							"\r",
+							"pm.environment.set(\"MAIUSCULA\", Department());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"departmentName\": \"{{MAIUSCULA}}\",\r\n  \"costCenterId\": \"65855af6a2d3ae70485da0b7\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://the-originals.qacoders-academy.com.br/api/department/",
+					"protocol": "https",
+					"host": [
+						"the-originals",
+						"qacoders-academy",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"department",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Api_Department",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTMzMGMxZWZiOGYzZGFkMTNhNjgwOGIiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCQza0MxMHZ1L0VqTW9SUVVtcVFxL0guN2NyV1lJSUJjQkRUMmc0UlUwQlE0bXJSaTRKRXhPdSIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoic2V4dGEtZmVpcmEsIDIwLzEwLzIwMjMsIDIwOjI0OjE0IEJSVCIsInJlZ2lzdHJhdGlvbk51bWJlciI6IjAxIiwiY29tcGFueUlkIjoiUWEuQ29kZXJzIiwiX2lkIjoiNjUzMzBjMWVmYjhmM2RhZDEzYTY4MDhjIn1dLCJfX3YiOjAsImlhdCI6MTcxMDg4OTg0OSwiZXhwIjoxNzEwOTc2MjQ5fQ.xw_vDUZf2variv9RnSTYjL6BWHXiX2-4mXIiKCWvmGQ",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mail\": \"sysadmin@qacoders.com\",\r\n  \"password\": \"1234@Test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://the-originals.qacoders-academy.com.br/api/validateToken",
+					"protocol": "https",
+					"host": [
+						"the-originals",
+						"qacoders-academy",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"validateToken"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

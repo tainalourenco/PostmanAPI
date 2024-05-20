@@ -1,0 +1,63 @@
+{
+	"id": "269cfbe0-1c2c-479c-b4ae-8b296f2d9441",
+	"name": "Academy",
+	"values": [
+		{
+			"key": "Departamento",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "MAIUSCULA",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "Departamento&",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "_mensagemDepNumero",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "_mensagemBoardNumero",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "Diretoria&",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "Diretoria",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "_msgBoardCatactereEspecial",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-05-14T22:10:06.826Z",
+	"_postman_exported_using": "Postman/10.24.24"
+}
