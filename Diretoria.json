@@ -1,13 +1,26 @@
 {
 	"info": {
-		"_postman_id": "284cca62-3e4c-4f5a-8201-2fa596317df7",
+		"_postman_id": "edf28477-3ff2-416e-8930-613ffc012393",
 		"name": "Diretoria",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19860280"
+		"_exporter_id": "19860280",
+		"_collection_link": "https://winter-shadow-262929.postman.co/workspace/TESTE-COMPARTILHADO~d5b0db15-05bc-46c3-88db-efe190b0b4d6/collection/19860280-edf28477-3ff2-416e-8930-613ffc012393?action=share&source=collection_link&creator=19860280"
 	},
 	"item": [
 		{
 			"name": "Api_login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"token\", pm.response.json().token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -21,13 +34,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/login",
-					"protocol": "https",
+					"raw": "{{url}}/api/login",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -87,13 +96,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/board/",
-					"protocol": "https",
+					"raw": "{{url}}/api/board/",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -158,13 +163,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/board/",
-					"protocol": "https",
+					"raw": "{{url}}/api/board/",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -229,13 +230,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/board/",
-					"protocol": "https",
+					"raw": "{{url}}/api/board/",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -300,13 +297,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/board/",
-					"protocol": "https",
+					"raw": "{{url}}/api/board/",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -369,13 +362,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/board/",
-					"protocol": "https",
+					"raw": "{{url}}/api/board/",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",

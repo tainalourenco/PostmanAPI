@@ -1,13 +1,26 @@
 {
 	"info": {
-		"_postman_id": "cce50314-c85b-4e45-a305-a88fa50dd939",
+		"_postman_id": "d5df8122-0fd6-4bdd-9d9f-56943eafd986",
 		"name": "Departamento",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19860280"
+		"_exporter_id": "19860280",
+		"_collection_link": "https://winter-shadow-262929.postman.co/workspace/TESTE-COMPARTILHADO~d5b0db15-05bc-46c3-88db-efe190b0b4d6/collection/19860280-d5df8122-0fd6-4bdd-9d9f-56943eafd986?action=share&source=collection_link&creator=19860280"
 	},
 	"item": [
 		{
 			"name": "Api_login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"token\", pm.response.json().token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -21,13 +34,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/login",
-					"protocol": "https",
+					"raw": "{{url}}/api/login",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -91,13 +100,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/department/",
-					"protocol": "https",
+					"raw": "{{url}}/api/department/",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -162,13 +167,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/department/",
-					"protocol": "https",
+					"raw": "{{url}}/api/department/",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -224,13 +225,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/department/",
-					"protocol": "https",
+					"raw": "{{url}}/api/department/",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -295,13 +292,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/department/",
-					"protocol": "https",
+					"raw": "{{url}}/api/department/",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -345,13 +338,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://the-originals.qacoders-academy.com.br/api/validateToken",
-					"protocol": "https",
+					"raw": "{{url}}/api/validateToken",
 					"host": [
-						"the-originals",
-						"qacoders-academy",
-						"com",
-						"br"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -360,6 +349,43 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
